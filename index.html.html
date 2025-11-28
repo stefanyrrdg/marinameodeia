@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Marina</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #f2f2f2;
+        font-family: "Times New Roman", serif;
+        color: #000;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .page {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .active {
+        display: flex;
+    }
+
+    h1, h2 {
+        font-weight: normal;
+        margin: 6px 0;
+    }
+
+    .buttons {
+        margin-top: 25px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn, .btn-voltar {
+        padding: 12px 28px;
+        border: 1px solid #000;
+        background: none;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.2s;
+    }
+
+    .btn:hover, .btn-voltar:hover {
+        background: #000;
+        color: #fff;
+    }
+
+    img {
+        width: 260px;
+        margin-top: 25px;
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- Página principal -->
+    <div id="home" class="page active">
+        <h1>bom dia marina às vezes mariel</h1>
+        <h2>você me odeia?</h2>
+
+        <div class="buttons">
+            <button class="btn" onclick="showPage('sim')">sim</button>
+            <button class="btn" onclick="showPage('nao')">não</button>
+        </div>
+    </div>
+
+    <!-- Página SIM -->
+    <div id="sim" class="page">
+        <h1>EU SABIA! :(</h1>
+        <img src="https://i.imgur.com/aBOxcLx.jpeg">
+
+        <button class="btn-voltar" onclick="showPage('home')">voltar</button>
+    </div>
+
+    <!-- Página NÃO -->
+    <div id="nao" class="page">
+        <h1>MENTIROSO!!!!!!!!!!!!</h1>
+        <img src="https://i.imgur.com/WMtcdpY.jpeg">
+
+        <button class="btn-voltar" onclick="showPage('home')">voltar</button>
+    </div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+        document.getElementById(pageId).classList.add("active");
+    }
+</script>
+
+</body>
+</html>
